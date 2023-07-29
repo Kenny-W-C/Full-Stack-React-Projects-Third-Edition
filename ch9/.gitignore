@@ -25,3 +25,8 @@ dist-ssr
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+# usually, you would add .env to gitignore, like we mentioned in the book
+# but we specifically want it to be included here to make it easier to
+# run the examples without having to set up an .env file 
+# .env
