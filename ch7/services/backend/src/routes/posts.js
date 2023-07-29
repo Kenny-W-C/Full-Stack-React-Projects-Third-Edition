@@ -24,7 +24,7 @@ export default function postRoutes(app) {
       } else if (tag) {
         return res.json(await listPostsByTag(tag, options))
       } else {
-        return res.json(await listAllPosts())
+        return res.json(await listAllPosts(options))
       }
     } catch (err) {
       console.error('error listing posts', err)
