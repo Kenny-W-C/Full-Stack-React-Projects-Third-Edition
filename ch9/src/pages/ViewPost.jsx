@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { useQuery } from '@tanstack/react-query'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 
 import Header from '../components/Header.jsx'
 import Post from '../components/Post.jsx'

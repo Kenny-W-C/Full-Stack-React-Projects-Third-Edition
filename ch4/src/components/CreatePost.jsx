@@ -6,11 +6,11 @@ import { createPost } from '../api/posts.js'
 export default function CreatePost() {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
-  const [content, setContent] = useState('')
+  const [contents, setContents] = useState('')
 
   const queryClient = useQueryClient()
   const createPostMutation = useMutation({
-    mutationFn: () => createPost({ title, author, content }),
+    mutationFn: () => createPost({ title, author, contents }),
     onSuccess: () => queryClient.invalidateQueries(['posts']),
   })
 
@@ -43,7 +43,7 @@ export default function CreatePost() {
         />
       </div>
       <br />
-      <textarea value={content} onChange={(e) => setContent(e.target.value)} />
+      <textarea value={contents} onChange={(e) => setContents(e.target.value)} />
       <br />
       <br />
       <input
