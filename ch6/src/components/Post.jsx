@@ -4,7 +4,7 @@ import User from './User.jsx'
 
 export default function Post({ title, contents, author }) {
   return (
-    <div>
+    <article>
       <h3>{title}</h3>
       <div>{contents}</div>
       {author && (
@@ -13,7 +13,7 @@ export default function Post({ title, contents, author }) {
           Written by <User id={author} />
         </i>
       )}
-    </div>
+    </article>
   )
 }
 

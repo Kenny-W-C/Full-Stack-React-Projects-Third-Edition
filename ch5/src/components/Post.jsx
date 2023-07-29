@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 export default function Post({ title, contents, author }) {
   return (
-    <div>
+    <article>
       <h3>{title}</h3>
       <div>{contents}</div>
       {author && (
@@ -11,7 +11,7 @@ export default function Post({ title, contents, author }) {
           Written by <b>{author}</b>
         </i>
       )}
-    </div>
+    </article>
   )
 }
 
