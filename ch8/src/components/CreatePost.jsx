@@ -43,7 +43,7 @@ export default function CreatePost() {
       <input
         type='submit'
         value={createPostMutation.isLoading ? 'Creating...' : 'Create'}
-        // disabled={!title || createPostMutation.isLoading}
+        disabled={!title || createPostMutation.isLoading}
       />
       {createPostMutation.isSuccess ? (
         <>
