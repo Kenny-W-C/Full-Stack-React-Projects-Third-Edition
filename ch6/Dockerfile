@@ -3,7 +3,7 @@ ARG VITE_BACKEND_URL="http://localhost:3001/api/v1"
 WORKDIR /build
 COPY package.json .
 COPY package-lock.json .
-RUN npm install
+RUN npm ci
 COPY . .
 RUN npm run build
 
