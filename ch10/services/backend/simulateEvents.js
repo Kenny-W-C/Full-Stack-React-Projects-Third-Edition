@@ -8,9 +8,8 @@ const client = new MongoClient(databaseUrl)
 const simulationStart = Date.now() - 1000 * 60 * 60 * 24 * 90
 const simulationEnd = Date.now()
 const simulatedSessions = 10000
-const simulatedUsers = 50
 
-async function generateStats() {
+async function simulateEvents() {
   await client.connect()
   console.log('successfully connected to database:', databaseUrl)
   const db = client.db()
@@ -19,37 +18,34 @@ async function generateStats() {
   const allPosts = await posts.find().toArray()
   console.log(`found ${allPosts.length} posts`)
 
-  const stats = db.collection('stats')
-  await stats.deleteMany({})
+  const events = db.collection('events')
+  await events.deleteMany({})
 
   for (let sessionId = 0; sessionId < simulatedSessions; sessionId++) {
     const randomPost = allPosts[Math.floor(Math.random() * allPosts.length)]
-    const randomUser = 'user' + Math.floor(Math.random() * simulatedUsers)
     const sessionStart =
       simulationStart + Math.random() * (simulationEnd - simulationStart)
     const sessionEnd = sessionStart + 1000 * Math.floor(Math.random() * 60 * 5)
-    await stats.insertMany([
+    await events.insertMany([
       {
         post: randomPost._id,
-        user: randomUser,
         sessionId,
         action: 'startView',
         date: new Date(sessionStart),
       },
       {
         post: randomPost._id,
-        user: randomUser,
         sessionId,
         action: 'endView',
         date: new Date(sessionEnd),
       },
     ])
   }
-  const allStats = await stats.countDocuments()
-  return `successfully created ${allStats} stats entries`
+  const allEvents = await events.countDocuments()
+  return `successfully created ${allEvents} events`
 }
 
-generateStats()
+simulateEvents()
   .then(console.log)
   .catch(console.error)
   .finally(() => client.close())
