@@ -7,14 +7,9 @@ import { User } from './src/db/models/user.js'
 import { Event } from './src/db/models/event.js'
 import { createUser } from './src/services/users.js'
 import { createPost } from './src/services/posts.js'
-import {
-  trackEvent,
-  getTotalViews,
-  getDailyViews,
-  getDailyDurations,
-} from './src/services/events.js'
+import { trackEvent } from './src/services/events.js'
 
-const simulationStart = Date.now() - 1000 * 60 * 60 * 24 * 90
+const simulationStart = Date.now() - 1000 * 60 * 60 * 24 * 30
 const simulationEnd = Date.now()
 const simulatedUsers = 5
 const simulatedPosts = 10
