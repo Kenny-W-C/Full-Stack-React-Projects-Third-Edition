@@ -6,7 +6,6 @@ import {
   VictoryBar,
   VictoryLine,
   VictoryVoronoiContainer,
-  VictoryLegend,
 } from 'victory'
 
 import {
@@ -41,7 +40,7 @@ export default function PostStats({ postId }) {
     <div>
       <b>{totalViews.data?.views} total views</b>
       <div style={{ width: 512 }}>
-        <h3>Daily Views</h3>
+        <h4>Daily Views</h4>
         <VictoryChart domainPadding={16}>
           <VictoryBar
             labelComponent={<VictoryTooltip />}
@@ -56,7 +55,7 @@ export default function PostStats({ postId }) {
         </VictoryChart>
       </div>
       <div style={{ width: 512 }}>
-        <h3>Daily Average Viewing Duration</h3>
+        <h4>Daily Average Viewing Duration</h4>
         <VictoryChart
           domainPadding={16}
           containerComponent={
