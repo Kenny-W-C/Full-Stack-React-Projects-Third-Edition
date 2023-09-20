@@ -72,7 +72,11 @@ export default function ViewPost({ postId }) {
       <Link to='/'>Back to main page</Link>
       <br />
       <hr />
-      {post ? <Post {...post} fullPost /> : `Post with id ${postId} not found.`}
+      {post ? (
+        <Post {...post} id={postId} fullPost />
+      ) : (
+        `Post with id ${postId} not found.`
+      )}
       <hr />
       <PostStats postId={postId} />
     </div>

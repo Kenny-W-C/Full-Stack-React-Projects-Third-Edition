@@ -8,7 +8,7 @@ export default function Post({
   title,
   contents,
   author,
-  _id,
+  id,
   fullPost = false,
 }) {
   return (
@@ -16,7 +16,7 @@ export default function Post({
       {fullPost ? (
         <h3>{title}</h3>
       ) : (
-        <Link to={`/posts/${_id}/${slug(title)}`}>
+        <Link to={`/posts/${id}/${slug(title)}`}>
           <h3>{title}</h3>
         </Link>
       )}
@@ -35,6 +35,6 @@ Post.propTypes = {
   title: PropTypes.string.isRequired,
   contents: PropTypes.string,
   author: PropTypes.string,
-  _id: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   fullPost: PropTypes.bool,
 }
