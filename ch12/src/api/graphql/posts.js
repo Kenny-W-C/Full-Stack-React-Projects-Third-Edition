@@ -9,6 +9,9 @@ export const GET_POSTS = gql`
       tags
       updatedAt
       createdAt
+      author {
+        username
+      }
     }
   }
 `

@@ -73,7 +73,7 @@ export default function ViewPost({ postId }) {
       <br />
       <hr />
       {post ? (
-        <Post {...post} id={postId} fullPost />
+        <Post {...post} id={postId} author={userInfo} fullPost />
       ) : (
         `Post with id ${postId} not found.`
       )}
