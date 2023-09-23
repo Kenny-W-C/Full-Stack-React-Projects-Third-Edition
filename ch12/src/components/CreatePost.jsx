@@ -1,7 +1,13 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation as useGraphQLMutation } from '@apollo/client'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import slug from 'slug'
 
-import { createPost } from '../api/posts.js'
+import {
+  CREATE_POST,
+  GET_POSTS,
+  GET_POSTS_BY_AUTHOR,
+} from '../api/graphql/posts.js'
 import { useAuth } from '../contexts/AuthContext.jsx'
 
 export default function CreatePost() {
@@ -10,15 +16,15 @@ export default function CreatePost() {
   const [title, setTitle] = useState('')
   const [contents, setContents] = useState('')
 
-  const queryClient = useQueryClient()
-  const createPostMutation = useMutation({
-    mutationFn: () => createPost(token, { title, contents }),
-    onSuccess: () => queryClient.invalidateQueries(['posts']),
+  const [createPost, { loading, data }] = useGraphQLMutation(CREATE_POST, {
+    variables: { title, contents },
+    context: { headers: { Authorization: `Bearer ${token}` } },
+    refetchQueries: [GET_POSTS, GET_POSTS_BY_AUTHOR],
   })
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    createPostMutation.mutate()
+    createPost()
   }
 
   return (
@@ -42,13 +48,19 @@ export default function CreatePost() {
       <br />
       <input
         type='submit'
-        value={createPostMutation.isLoading ? 'Creating...' : 'Create'}
-        disabled={!title || createPostMutation.isLoading}
+        value={loading ? 'Creating...' : 'Create'}
+        disabled={!title || loading}
       />
-      {createPostMutation.isSuccess ? (
+      {data?.createPost ? (
         <>
           <br />
-          Post created successfully!
+          Post{' '}
+          <Link
+            to={`/posts/${data.createPost.id}/${slug(data.createPost.title)}`}
+          >
+            {data.createPost.title}
+          </Link>{' '}
+          created successfully!
         </>
       ) : null}
     </form>
