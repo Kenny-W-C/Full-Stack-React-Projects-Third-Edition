@@ -6,15 +6,17 @@ import PostList from '../components/PostList.jsx'
 import CreatePost from '../components/CreatePost.jsx'
 import PostFilter from '../components/PostFilter.jsx'
 import PostSorting from '../components/PostSorting.jsx'
-import { GET_POSTS } from '../api/graphql/posts.js'
+import { GET_POSTS, GET_POSTS_BY_AUTHOR } from '../api/graphql/posts.js'
 
 export default function Blog() {
   const [author, setAuthor] = useState('')
   const [sortBy, setSortBy] = useState('createdAt')
   const [sortOrder, setSortOrder] = useState('descending')
 
-  const postsQuery = useGraphQLQuery(GET_POSTS)
-  const posts = postsQuery.data?.posts ?? []
+  const postsQuery = useGraphQLQuery(author ? GET_POSTS_BY_AUTHOR : GET_POSTS, {
+    variables: { author, options: { sortBy, sortOrder } },
+  })
+  const posts = postsQuery.data?.postsByAuthor ?? postsQuery.data?.posts ?? []
 
   return (
     <div style={{ padding: 8 }}>
