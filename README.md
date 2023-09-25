@@ -14,13 +14,15 @@ git clone https://github.com/PacktPublishing/Full-Stack-React-Projects-Third-Edi
 
 ## Running examples
 
-After cloning, you can run the examples by going to the corresponding folder and following the steps in the README.md there.
+After cloning, you can run the examples by going to the corresponding folder and following the steps in the `README.md` file there.
 
-For example:
+For example, to go to the `ch1/` folder, execute:
 
 ```
 cd ch1/
 ```
+
+Then follow the **Install** and **Start** steps, as explained in the corresponding `README.md` file for each chapter.
 
 
 ## Chapters
