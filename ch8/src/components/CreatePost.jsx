@@ -20,6 +20,8 @@ export default function CreatePost() {
     e.preventDefault()
     createPostMutation.mutate()
   }
+  
+  if (!token) return <div>Please log in to create new posts.</div>
 
   return (
     <form onSubmit={handleSubmit}>

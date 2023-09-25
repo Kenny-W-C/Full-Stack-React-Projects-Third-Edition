@@ -26,6 +26,8 @@ export default function CreatePost() {
     e.preventDefault()
     createPost()
   }
+  
+  if (!token) return <div>Please log in to create new posts.</div>
 
   return (
     <form onSubmit={handleSubmit}>
