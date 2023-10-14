@@ -28,3 +28,14 @@ Then follow the **Install** and **Start** steps, as explained in the correspondi
 ## Chapters
 
 - [Chapter 1, Preparing For Full-Stack Development](https://github.com/PacktPublishing/Full-Stack-React-Projects-Third-Edition/tree/main/ch1)
+- [Chapter 2, TBD](https://github.com/PacktPublishing/Full-Stack-React-Projects-Third-Edition/tree/main/ch2)
+- [Chapter 3, TBD](https://github.com/PacktPublishing/Full-Stack-React-Projects-Third-Edition/tree/main/ch3)
+- [Chapter 4, TBD](https://github.com/PacktPublishing/Full-Stack-React-Projects-Third-Edition/tree/main/ch4)
+- [Chapter 5, TBD](https://github.com/PacktPublishing/Full-Stack-React-Projects-Third-Edition/tree/main/ch5)
+- [Chapter 6, TBD](https://github.com/PacktPublishing/Full-Stack-React-Projects-Third-Edition/tree/main/ch6)
+- [Chapter 7, TBD](https://github.com/PacktPublishing/Full-Stack-React-Projects-Third-Edition/tree/main/ch7)
+- [Chapter 8, TBD](https://github.com/PacktPublishing/Full-Stack-React-Projects-Third-Edition/tree/main/ch8)
+- [Chapter 9, TBD](https://github.com/PacktPublishing/Full-Stack-React-Projects-Third-Edition/tree/main/ch9)
+- [Chapter 10, TBD](https://github.com/PacktPublishing/Full-Stack-React-Projects-Third-Edition/tree/main/ch10)
+- [Chapter 11, TBD](https://github.com/PacktPublishing/Full-Stack-React-Projects-Third-Edition/tree/main/ch11)
+- [Chapter 12, TBD](https://github.com/PacktPublishing/Full-Stack-React-Projects-Third-Edition/tree/main/ch12)

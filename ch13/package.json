@@ -1,5 +1,5 @@
 {
-  "name": "ch2",
+  "name": "ch1",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,9 +11,11 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "mongodb": "^5.1.0",
+    "@tanstack/react-query": "^4.29.3",
+    "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
