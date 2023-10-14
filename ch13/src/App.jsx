@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { io } from 'socket.io-client'
 
 import { AuthContextProvider } from './contexts/AuthContext.jsx'
 import Blog from './pages/Blog.jsx'
@@ -7,6 +8,10 @@ import Signup from './pages/Signup.jsx'
 import Login from './pages/Login.jsx'
 
 const queryClient = new QueryClient()
+const socket = io(import.meta.env.VITE_SOCKET_HOST)
+socket.on('connect', () => {
+  console.log('connected to socket.io')
+})
 
 const router = createBrowserRouter([
   {
