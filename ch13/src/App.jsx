@@ -10,8 +10,11 @@ import Login from './pages/Login.jsx'
 const queryClient = new QueryClient()
 const socket = io(import.meta.env.VITE_SOCKET_HOST)
 socket.on('connect', () => {
-  console.log('connected to socket.io')
+  console.log('connected to socket.io as', socket.id)
   socket.emit('chat.message', 'hello from client')
+})
+socket.on('chat.message', (message) => {
+  console.log(message)
 })
 
 const router = createBrowserRouter([

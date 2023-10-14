@@ -6,8 +6,10 @@ export function handleSocket(io) {
       console.log('user disconnected:', socket.id)
     })
 
-    socket.on('chat.message', (msg) => {
-      console.log('message:', msg)
+    socket.on('chat.message', (message) => {
+      const chatMessage = `${socket.id}: ${message}`
+      console.log(chatMessage)
+      io.emit('chat.message', chatMessage)
     })
   })
 }
