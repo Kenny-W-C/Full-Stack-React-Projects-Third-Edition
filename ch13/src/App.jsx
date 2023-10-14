@@ -11,6 +11,7 @@ const queryClient = new QueryClient()
 const socket = io(import.meta.env.VITE_SOCKET_HOST)
 socket.on('connect', () => {
   console.log('connected to socket.io')
+  socket.emit('chat.message', 'hello from client')
 })
 
 const router = createBrowserRouter([
