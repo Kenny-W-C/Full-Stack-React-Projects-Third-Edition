@@ -11,9 +11,11 @@ const queryClient = new QueryClient()
 const socket = io(import.meta.env.VITE_SOCKET_HOST, {
   query: window.location.search.substring(1),
 })
-socket.on('connect', () => {
+socket.on('connect', async () => {
   console.log('connected to socket.io as', socket.id)
   socket.emit('chat.message', 'hello from client')
+  const userInfo = await socket.emitWithAck('user.info', socket.id)
+  console.log('user info', userInfo)
 })
 socket.on('chat.message', (message) => {
   console.log(message)
