@@ -8,7 +8,9 @@ import Signup from './pages/Signup.jsx'
 import Login from './pages/Login.jsx'
 
 const queryClient = new QueryClient()
-const socket = io(import.meta.env.VITE_SOCKET_HOST)
+const socket = io(import.meta.env.VITE_SOCKET_HOST, {
+  query: window.location.search.substring(1),
+})
 socket.on('connect', () => {
   console.log('connected to socket.io as', socket.id)
   socket.emit('chat.message', 'hello from client')
