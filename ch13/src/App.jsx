@@ -8,15 +8,25 @@ import Signup from './pages/Signup.jsx'
 import Login from './pages/Login.jsx'
 
 const queryClient = new QueryClient()
+
 const socket = io(import.meta.env.VITE_SOCKET_HOST, {
   query: window.location.search.substring(1),
+  auth: {
+    token: window.localStorage.getItem('token'),
+  },
 })
+
 socket.on('connect', async () => {
   console.log('connected to socket.io as', socket.id)
   socket.emit('chat.message', 'hello from client')
   const userInfo = await socket.emitWithAck('user.info', socket.id)
   console.log('user info', userInfo)
 })
+
+socket.on('connect_error', (err) => {
+  console.error('socket.io connect error:', err)
+})
+
 socket.on('chat.message', (message) => {
   console.log(message)
 })
