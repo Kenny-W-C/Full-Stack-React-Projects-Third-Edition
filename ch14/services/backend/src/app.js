@@ -6,7 +6,6 @@ import cors from 'cors'
 import { Server } from 'socket.io'
 
 import userRoutes from './routes/users.js'
-import postRoutes from './routes/posts.js'
 import { handleSocket } from './socket.js'
 
 const app = express()
@@ -22,7 +21,6 @@ app.use(cors())
 app.use(bodyParser.json())
 
 userRoutes(app)
-postRoutes(app)
 
 app.get('/', (req, res) => {
   res.send('Hello World from Express!')
