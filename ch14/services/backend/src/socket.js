@@ -8,8 +8,10 @@ export function handleSocket(io) {
     socket.join(room)
 
     socket.on('chat.message', (message) => {
-      const chatMessage = `${socket.user.username}: ${message}`
-      io.to(room).emit('chat.message', chatMessage)
+      io.to(room).emit('chat.message', {
+        username: socket.user.username,
+        message,
+      })
     })
 
     socket.on('user.info', async (socketId, callback) => {
